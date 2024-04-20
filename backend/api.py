@@ -6,5 +6,6 @@ api_router = APIRouter()
 
 
 @api_router.get("/predict_pm10")
-def get_ppm10_prediction_route():
-    return predict_pm10()
+def get_ppm10_prediction_route(hour: int = 2):
+    prediction = predict_pm10(hour)
+    return prediction.tolist()
