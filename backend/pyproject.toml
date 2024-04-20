@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "data4good-backend"
+version = "0.1.0"
+description = ""
+authors = ["Warsaw Hacking Team"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.2"
+numpy = "^1.26.4"
+onnxruntime = "^1.17.3"
+pydantic = "^2.7.0"
+uvicorn = "^0.29.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
