@@ -25,4 +25,4 @@ def model_test(torch_model, test_loader, device):
     preds_list = np.concatenate(preds_list, axis=0)
     outs_list = np.concatenate(outs_list, axis=0)
 
-    return mean_absolute_error(outs_list, preds_list)
+    return mean_absolute_error(outs_list, preds_list), preds_list, outs_list

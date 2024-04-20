@@ -18,6 +18,7 @@ class MLP(nn.Module):
         x = self.bn2(x)
         x = self.fc2(x)
         return x
+    
 class MLP_v2(nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
         super().__init__()
@@ -37,4 +38,5 @@ class MLP_v2(nn.Module):
         x = self.relu(x)
         x = self.bn2(x)
         x = self.fc3(x)
+        # x = self.relu(x)
         return x
