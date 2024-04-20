@@ -1,2 +1,7 @@
 data/*
 generated_data/*
+
+# IDE
+.idea
+
+__pycache__
