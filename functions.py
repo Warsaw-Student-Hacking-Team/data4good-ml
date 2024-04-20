@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.metrics import mean_absolute_error
 
 
-def model_test(torch_model, test_loader, device, round_treshold):
+def model_test(torch_model, test_loader, device):
 
     torch_model.eval()
     preds_list = []
@@ -17,11 +17,10 @@ def model_test(torch_model, test_loader, device, round_treshold):
             x = x.reshape(-1,input_size).to(device)
             preds = torch_model(x)
         
-        
-    preds = preds.to(device).cpu().numpy()
-    y = y.float().numpy()
-    outs_list.append(y)
-    preds_list.append(preds)
+            preds = preds.to(device).cpu().numpy()
+            y = y.float().numpy()
+            outs_list.append(y)
+            preds_list.append(preds)
 
     preds_list = np.concatenate(preds_list, axis=0)
     outs_list = np.concatenate(outs_list, axis=0)
