@@ -31,7 +31,7 @@ def predict_pm10_internal(l_spared, traffic_values, month, hour):
     return average_traffic_est_real, average_traffic_est_without_app
 
 
-def predict_pm10(l_spared):
+def predict_pm10_day_mean(l_spared):
     l1, l2 = [], []
     month = 1
 
@@ -45,7 +45,20 @@ def predict_pm10(l_spared):
         l1.append(real_traffic_estimates)
         l2.append(without_app_estimates)
 
-        print(real_traffic_estimates, without_app_estimates)
-        print(without_app_estimates - real_traffic_estimates)
+    return np.mean(np.array(l2) - np.array(l1))
+
+
+def predict_pm10_hour_mean(l_spared, hour):
+    l1, l2 = [], []
+    month = 1
+
+    real_traffic_estimates, without_app_estimates = predict_pm10_internal(
+        l_spared,
+        example_traffic_values[hour],
+        month,
+        hour
+    )
+    l1.append(real_traffic_estimates)
+    l2.append(without_app_estimates)
 
     return np.mean(np.array(l2) - np.array(l1))
